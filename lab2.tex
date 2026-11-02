@@ -1,0 +1,1114 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={Лабораторная работа: Импорт и профилирование данных},
+  pdfauthor={Кильдибеков Данил Андреевич 02271-ДМ},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Лабораторная работа: Импорт и профилирование данных}
+\author{Кильдибеков Данил Андреевич 02271-ДМ}
+\date{}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section{1. Описание данных и
+цель}\label{ux43eux43fux438ux441ux430ux43dux438ux435-ux434ux430ux43dux43dux44bux445-ux438-ux446ux435ux43bux44c}
+
+Цель-импортировать грязные наборы данных, привести типы, выявить
+проблемы качества и составить план очистки. Исходные файлы в
+\texttt{data/raw/} не редактируются.
+
+\section{2. Изучение сырого
+файла}\label{ux438ux437ux443ux447ux435ux43dux438ux435-ux441ux44bux440ux43eux433ux43e-ux444ux430ux439ux43bux430}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{read\_lines}\NormalTok{(}\StringTok{"data/raw/AirQualityUCI.csv"}\NormalTok{, }\AttributeTok{n\_max =} \DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Date;Time;CO(GT);PT08.S1(CO);NMHC(GT);C6H6(GT);PT08.S2(NMHC);NOx(GT);PT08.S3(NOx);NO2(GT);PT08.S4(NO2);PT08.S5(O3);T;RH;AH;;"
+## [2] "10/03/2004;18.00.00;2,6;1360;150;11,9;1046;166;1056;113;1692;1268;13,6;48,9;0,7578;;"                                        
+## [3] "10/03/2004;19.00.00;2;1292;112;9,4;955;103;1174;92;1559;972;13,3;47,7;0,7255;;"                                              
+## [4] "10/03/2004;20.00.00;2,2;1402;88;9,0;939;131;1140;114;1555;1074;11,9;54,0;0,7502;;"                                           
+## [5] "10/03/2004;21.00.00;2,2;1376;80;9,2;948;172;1092;122;1584;1203;11,0;60,0;0,7867;;"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{read\_lines}\NormalTok{(}\StringTok{"data/raw/AirQualityUCI.csv"}\NormalTok{, }\AttributeTok{skip =} \DecValTok{9355}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] "04/04/2005;12.00.00;2,4;1142;-200;12,4;1063;293;603;175;1241;1092;26,9;18,3;0,6406;;"
+##   [2] "04/04/2005;13.00.00;2,1;1003;-200;9,5;961;235;702;156;1041;770;28,3;13,5;0,5139;;"   
+##   [3] "04/04/2005;14.00.00;2,2;1071;-200;11,9;1047;265;654;168;1129;816;28,5;13,1;0,5028;;" 
+##   [4] ";;;;;;;;;;;;;;;;"                                                                    
+##   [5] ";;;;;;;;;;;;;;;;"                                                                    
+##   [6] ";;;;;;;;;;;;;;;;"                                                                    
+##   [7] ";;;;;;;;;;;;;;;;"                                                                    
+##   [8] ";;;;;;;;;;;;;;;;"                                                                    
+##   [9] ";;;;;;;;;;;;;;;;"                                                                    
+##  [10] ";;;;;;;;;;;;;;;;"                                                                    
+##  [11] ";;;;;;;;;;;;;;;;"                                                                    
+##  [12] ";;;;;;;;;;;;;;;;"                                                                    
+##  [13] ";;;;;;;;;;;;;;;;"                                                                    
+##  [14] ";;;;;;;;;;;;;;;;"                                                                    
+##  [15] ";;;;;;;;;;;;;;;;"                                                                    
+##  [16] ";;;;;;;;;;;;;;;;"                                                                    
+##  [17] ";;;;;;;;;;;;;;;;"                                                                    
+##  [18] ";;;;;;;;;;;;;;;;"                                                                    
+##  [19] ";;;;;;;;;;;;;;;;"                                                                    
+##  [20] ";;;;;;;;;;;;;;;;"                                                                    
+##  [21] ";;;;;;;;;;;;;;;;"                                                                    
+##  [22] ";;;;;;;;;;;;;;;;"                                                                    
+##  [23] ";;;;;;;;;;;;;;;;"                                                                    
+##  [24] ";;;;;;;;;;;;;;;;"                                                                    
+##  [25] ";;;;;;;;;;;;;;;;"                                                                    
+##  [26] ";;;;;;;;;;;;;;;;"                                                                    
+##  [27] ";;;;;;;;;;;;;;;;"                                                                    
+##  [28] ";;;;;;;;;;;;;;;;"                                                                    
+##  [29] ";;;;;;;;;;;;;;;;"                                                                    
+##  [30] ";;;;;;;;;;;;;;;;"                                                                    
+##  [31] ";;;;;;;;;;;;;;;;"                                                                    
+##  [32] ";;;;;;;;;;;;;;;;"                                                                    
+##  [33] ";;;;;;;;;;;;;;;;"                                                                    
+##  [34] ";;;;;;;;;;;;;;;;"                                                                    
+##  [35] ";;;;;;;;;;;;;;;;"                                                                    
+##  [36] ";;;;;;;;;;;;;;;;"                                                                    
+##  [37] ";;;;;;;;;;;;;;;;"                                                                    
+##  [38] ";;;;;;;;;;;;;;;;"                                                                    
+##  [39] ";;;;;;;;;;;;;;;;"                                                                    
+##  [40] ";;;;;;;;;;;;;;;;"                                                                    
+##  [41] ";;;;;;;;;;;;;;;;"                                                                    
+##  [42] ";;;;;;;;;;;;;;;;"                                                                    
+##  [43] ";;;;;;;;;;;;;;;;"                                                                    
+##  [44] ";;;;;;;;;;;;;;;;"                                                                    
+##  [45] ";;;;;;;;;;;;;;;;"                                                                    
+##  [46] ";;;;;;;;;;;;;;;;"                                                                    
+##  [47] ";;;;;;;;;;;;;;;;"                                                                    
+##  [48] ";;;;;;;;;;;;;;;;"                                                                    
+##  [49] ";;;;;;;;;;;;;;;;"                                                                    
+##  [50] ";;;;;;;;;;;;;;;;"                                                                    
+##  [51] ";;;;;;;;;;;;;;;;"                                                                    
+##  [52] ";;;;;;;;;;;;;;;;"                                                                    
+##  [53] ";;;;;;;;;;;;;;;;"                                                                    
+##  [54] ";;;;;;;;;;;;;;;;"                                                                    
+##  [55] ";;;;;;;;;;;;;;;;"                                                                    
+##  [56] ";;;;;;;;;;;;;;;;"                                                                    
+##  [57] ";;;;;;;;;;;;;;;;"                                                                    
+##  [58] ";;;;;;;;;;;;;;;;"                                                                    
+##  [59] ";;;;;;;;;;;;;;;;"                                                                    
+##  [60] ";;;;;;;;;;;;;;;;"                                                                    
+##  [61] ";;;;;;;;;;;;;;;;"                                                                    
+##  [62] ";;;;;;;;;;;;;;;;"                                                                    
+##  [63] ";;;;;;;;;;;;;;;;"                                                                    
+##  [64] ";;;;;;;;;;;;;;;;"                                                                    
+##  [65] ";;;;;;;;;;;;;;;;"                                                                    
+##  [66] ";;;;;;;;;;;;;;;;"                                                                    
+##  [67] ";;;;;;;;;;;;;;;;"                                                                    
+##  [68] ";;;;;;;;;;;;;;;;"                                                                    
+##  [69] ";;;;;;;;;;;;;;;;"                                                                    
+##  [70] ";;;;;;;;;;;;;;;;"                                                                    
+##  [71] ";;;;;;;;;;;;;;;;"                                                                    
+##  [72] ";;;;;;;;;;;;;;;;"                                                                    
+##  [73] ";;;;;;;;;;;;;;;;"                                                                    
+##  [74] ";;;;;;;;;;;;;;;;"                                                                    
+##  [75] ";;;;;;;;;;;;;;;;"                                                                    
+##  [76] ";;;;;;;;;;;;;;;;"                                                                    
+##  [77] ";;;;;;;;;;;;;;;;"                                                                    
+##  [78] ";;;;;;;;;;;;;;;;"                                                                    
+##  [79] ";;;;;;;;;;;;;;;;"                                                                    
+##  [80] ";;;;;;;;;;;;;;;;"                                                                    
+##  [81] ";;;;;;;;;;;;;;;;"                                                                    
+##  [82] ";;;;;;;;;;;;;;;;"                                                                    
+##  [83] ";;;;;;;;;;;;;;;;"                                                                    
+##  [84] ";;;;;;;;;;;;;;;;"                                                                    
+##  [85] ";;;;;;;;;;;;;;;;"                                                                    
+##  [86] ";;;;;;;;;;;;;;;;"                                                                    
+##  [87] ";;;;;;;;;;;;;;;;"                                                                    
+##  [88] ";;;;;;;;;;;;;;;;"                                                                    
+##  [89] ";;;;;;;;;;;;;;;;"                                                                    
+##  [90] ";;;;;;;;;;;;;;;;"                                                                    
+##  [91] ";;;;;;;;;;;;;;;;"                                                                    
+##  [92] ";;;;;;;;;;;;;;;;"                                                                    
+##  [93] ";;;;;;;;;;;;;;;;"                                                                    
+##  [94] ";;;;;;;;;;;;;;;;"                                                                    
+##  [95] ";;;;;;;;;;;;;;;;"                                                                    
+##  [96] ";;;;;;;;;;;;;;;;"                                                                    
+##  [97] ";;;;;;;;;;;;;;;;"                                                                    
+##  [98] ";;;;;;;;;;;;;;;;"                                                                    
+##  [99] ";;;;;;;;;;;;;;;;"                                                                    
+## [100] ";;;;;;;;;;;;;;;;"                                                                    
+## [101] ";;;;;;;;;;;;;;;;"                                                                    
+## [102] ";;;;;;;;;;;;;;;;"                                                                    
+## [103] ";;;;;;;;;;;;;;;;"                                                                    
+## [104] ";;;;;;;;;;;;;;;;"                                                                    
+## [105] ";;;;;;;;;;;;;;;;"                                                                    
+## [106] ";;;;;;;;;;;;;;;;"                                                                    
+## [107] ";;;;;;;;;;;;;;;;"                                                                    
+## [108] ";;;;;;;;;;;;;;;;"                                                                    
+## [109] ";;;;;;;;;;;;;;;;"                                                                    
+## [110] ";;;;;;;;;;;;;;;;"                                                                    
+## [111] ";;;;;;;;;;;;;;;;"                                                                    
+## [112] ";;;;;;;;;;;;;;;;"                                                                    
+## [113] ";;;;;;;;;;;;;;;;"                                                                    
+## [114] ";;;;;;;;;;;;;;;;"                                                                    
+## [115] ";;;;;;;;;;;;;;;;"                                                                    
+## [116] ";;;;;;;;;;;;;;;;"                                                                    
+## [117] ";;;;;;;;;;;;;;;;"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{guess\_encoding}\NormalTok{(}\StringTok{"data/raw/AirQualityUCI.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   encoding confidence
+##   <chr>         <dbl>
+## 1 ASCII             1
+\end{verbatim}
+
+\textbf{Параметры файла}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Параметр
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Найденное значение
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Чем подтверждено
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Разделитель полей & \texttt{;} &
+\texttt{read\_lines(...,\ n\_max\ =\ 5)} \\
+Десятичный знак & \texttt{,} & значения вида \texttt{2,6} \\
+Кодировка & ASCII & \texttt{guess\_encoding()} \\
+Служебные строки перед таблицей & нет, 1 строка заголовка &
+\texttt{read\_lines()} \\
+Код пропуска & \texttt{-200} & значения \texttt{-200} в числовых
+столбцах \\
+Пустые строки или столбцы в конце & есть &
+\texttt{read\_lines(...,\ skip\ =\ 9355)} \\
+\end{longtable}
+}
+
+\section{3. Импорт основного
+набора}\label{ux438ux43cux43fux43eux440ux442-ux43eux441ux43dux43eux432ux43dux43eux433ux43e-ux43dux430ux431ux43eux440ux430}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_raw }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv2}\NormalTok{(}
+  \StringTok{"data/raw/AirQualityUCI.csv"}\NormalTok{,}
+  \AttributeTok{na =} \FunctionTok{c}\NormalTok{(}\StringTok{""}\NormalTok{, }\StringTok{"NA"}\NormalTok{, }\StringTok{"{-}200"}\NormalTok{),}
+  \AttributeTok{col\_types =} \FunctionTok{cols}\NormalTok{(}
+    \AttributeTok{Date =} \FunctionTok{col\_character}\NormalTok{(),}
+    \AttributeTok{Time =} \FunctionTok{col\_character}\NormalTok{(),}
+    \AttributeTok{.default =} \FunctionTok{col\_double}\NormalTok{()}
+\NormalTok{  ),}
+  \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{","}\NormalTok{, }\AttributeTok{encoding =} \StringTok{"UTF{-}8"}\NormalTok{),}
+  \AttributeTok{trim\_ws =} \ConstantTok{TRUE}
+\NormalTok{)}
+
+\FunctionTok{glimpse}\NormalTok{(df\_raw)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 9,471
+## Columns: 17
+## $ Date            <chr> "10/03/2004", "10/03/2004", "10/03/2004", "10/03/2004"~
+## $ Time            <chr> "18.00.00", "19.00.00", "20.00.00", "21.00.00", "22.00~
+## $ `CO(GT)`        <dbl> 2.6, 2.0, 2.2, 2.2, 1.6, 1.2, 1.2, 1.0, 0.9, 0.6, NA, ~
+## $ `PT08.S1(CO)`   <dbl> 1360, 1292, 1402, 1376, 1272, 1197, 1185, 1136, 1094, ~
+## $ `NMHC(GT)`      <dbl> 150, 112, 88, 80, 51, 38, 31, 31, 24, 19, 14, 8, 16, 2~
+## $ `C6H6(GT)`      <dbl> 11.9, 9.4, 9.0, 9.2, 6.5, 4.7, 3.6, 3.3, 2.3, 1.7, 1.3~
+## $ `PT08.S2(NMHC)` <dbl> 1046, 955, 939, 948, 836, 750, 690, 672, 609, 561, 527~
+## $ `NOx(GT)`       <dbl> 166, 103, 131, 172, 131, 89, 62, 62, 45, NA, 21, 16, 3~
+## $ `PT08.S3(NOx)`  <dbl> 1056, 1174, 1140, 1092, 1205, 1337, 1462, 1453, 1579, ~
+## $ `NO2(GT)`       <dbl> 113, 92, 114, 122, 116, 96, 77, 76, 60, NA, 34, 28, 48~
+## $ `PT08.S4(NO2)`  <dbl> 1692, 1559, 1555, 1584, 1490, 1393, 1333, 1333, 1276, ~
+## $ `PT08.S5(O3)`   <dbl> 1268, 972, 1074, 1203, 1110, 949, 733, 730, 620, 501, ~
+## $ T               <dbl> 13.6, 13.3, 11.9, 11.0, 11.2, 11.2, 11.3, 10.7, 10.7, ~
+## $ RH              <dbl> 48.9, 47.7, 54.0, 60.0, 59.6, 59.2, 56.8, 60.0, 59.7, ~
+## $ AH              <dbl> 0.7578, 0.7255, 0.7502, 0.7867, 0.7888, 0.7848, 0.7603~
+## $ ...16           <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+## $ ...17           <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{spec}\NormalTok{(df\_raw)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## cols(
+##   .default = col_double(),
+##   Date = col_character(),
+##   Time = col_character(),
+##   `CO(GT)` = col_double(),
+##   `PT08.S1(CO)` = col_double(),
+##   `NMHC(GT)` = col_double(),
+##   `C6H6(GT)` = col_double(),
+##   `PT08.S2(NMHC)` = col_double(),
+##   `NOx(GT)` = col_double(),
+##   `PT08.S3(NOx)` = col_double(),
+##   `NO2(GT)` = col_double(),
+##   `PT08.S4(NO2)` = col_double(),
+##   `PT08.S5(O3)` = col_double(),
+##   T = col_double(),
+##   RH = col_double(),
+##   AH = col_double(),
+##   ...16 = col_double(),
+##   ...17 = col_double()
+## )
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{problems}\NormalTok{(df\_raw)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 0 x 5
+## # i 5 variables: row <int>, col <int>, expected <chr>, actual <chr>, file <chr>
+\end{verbatim}
+
+Пояснения: - \texttt{read\_csv2()} --- разделитель \texttt{;},
+десятичная запятая - \texttt{na\ =\ c("",\ "NA",\ "-200")} --- иначе
+\texttt{-200} попадёт в статистику как реальное значение - \texttt{Date}
+и \texttt{Time} читаются как текст, чтобы потом собрать \texttt{POSIXct}
+- \texttt{.default\ =\ col\_double()} --- числовые датчики сразу
+получают числовой тип - \texttt{problems()} показывает проблемы парсинга
+
+\section{4. Файл с проблемной
+кодировкой}\label{ux444ux430ux439ux43b-ux441-ux43fux440ux43eux431ux43bux435ux43cux43dux43eux439-ux43aux43eux434ux438ux440ux43eux432ux43aux43eux439}
+
+\subsection{4.1. Чтение по умолчанию ---
+«до»}\label{ux447ux442ux435ux43dux438ux435-ux43fux43e-ux443ux43cux43eux43bux447ux430ux43dux438ux44e-ux434ux43e}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{variant\_file }\OtherTok{\textless{}{-}} \StringTok{"data/raw/students.csv"}
+
+\NormalTok{df\_bad }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(variant\_file, }\AttributeTok{delim =} \StringTok{";"}\NormalTok{, }\AttributeTok{show\_col\_types =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(df\_bad, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 5
+##   `Ð¤Ð\u0098Ð\u009e`               Ð\u0093Ñ\u0080Ñ\u008~1 Ð\u0094Ð¸Ñ\u0081Ñ\u0~2
+##   <chr>                            <chr>                  <chr>                 
+## 1 "Ð¡Ð¸Ð´Ð¾Ñ\u0080Ð¾Ð² Ð\u0090Ð½Ð~ "Ð\u0098Ð\u0092Ð¢-21"  "Ð\u0090Ð½Ð°Ð»Ð¸Ð· Ð´~
+## 2 "Ð\u009dÐ¸ÐºÐ¾Ð»Ð°ÐµÐ²Ð° Ð\u009~ "Ð\u0098Ð\u0092Ð¢-21"  "Ð\u009cÐ°Ñ\u0082ÐµÐ¼~
+## 3 "Ð\u009aÑ\u0083Ð·Ð½ÐµÑ\u0086Ð¾Ð~ "Ð\u0098Ð\u0092Ð¢-21"  "Ð\u009cÐ°Ñ\u0088Ð¸Ð½~
+## 4 "Ð\u009aÑ\u0083Ð·Ð½ÐµÑ\u0086Ð¾Ð~ "Ð\u0098Ð\u0092Ð¢-22"  "Ð\u009cÐ°Ñ\u0088Ð¸Ð½~
+## 5 "Ð\u0098Ð²Ð°Ð½Ð¾Ð² Ð\u009cÐ°Ñ\u~ "Ð\u0098Ð\u0092Ð¢-22"  "Ð\u0090Ð½Ð°Ð»Ð¸Ð· Ð´~
+## # i abbreviated names: 1: `Ð\u0093Ñ\u0080Ñ\u0083Ð¿Ð¿Ð°`,
+## #   2: `Ð\u0094Ð¸Ñ\u0081Ñ\u0086Ð¸Ð¿Ð»Ð¸Ð½Ð°`
+## # i 2 more variables: `Ð\u0091Ð°Ð»Ð»Ñ\u008b` <dbl>,
+## #   `Ð\u009eÑ\u0086ÐµÐ½ÐºÐ°` <chr>
+\end{verbatim}
+
+\subsection{4.2.
+Диагностика}\label{ux434ux438ux430ux433ux43dux43eux441ux442ux438ux43aux430}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{readBin}\NormalTok{(variant\_file, }\StringTok{"raw"}\NormalTok{, }\DecValTok{12}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] c3 90 c2 a4 c3 90 c2 98 c3 90 c2 9e
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{guess\_encoding}\NormalTok{(variant\_file)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   encoding confidence
+##   <chr>         <dbl>
+## 1 UTF-8             1
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{readBin} →
+  \texttt{c3\ 90\ c2\ a4\ c3\ 90\ c2\ 98\ c3\ 90\ c2\ 9e\ …}
+\item
+  \texttt{guess\_encoding} - UTF-8, confidence = 1
+\end{itemize}
+
+Три байта \texttt{c3\ 90\ c2\ a4} вместо одного \texttt{d0} --- признак
+\textbf{двойного кодирования}: исходный UTF-8 прочитан как Latin-1 и
+сохранён снова как UTF-8. Поэтому \texttt{encoding\ =\ "UTF-8"} не
+помогае
+
+\subsection{\texorpdfstring{4.3. Чтение с подобранными \texttt{skip} и
+\texttt{comment} +
+восстановление}{4.3. Чтение с подобранными skip и comment + восстановление}}\label{ux447ux442ux435ux43dux438ux435-ux441-ux43fux43eux434ux43eux431ux440ux430ux43dux43dux44bux43cux438-skip-ux438-comment-ux432ux43eux441ux441ux442ux430ux43dux43eux432ux43bux435ux43dux438ux435}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_fixed }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(}
+\NormalTok{  variant\_file,}
+  \AttributeTok{delim          =} \StringTok{";"}\NormalTok{,}
+  \AttributeTok{skip           =} \DecValTok{0}\NormalTok{,}
+  \AttributeTok{comment        =} \StringTok{""}\NormalTok{,}
+  \AttributeTok{locale         =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{encoding =} \StringTok{"UTF{-}8"}\NormalTok{),}
+  \AttributeTok{show\_col\_types =} \ConstantTok{TRUE}
+\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename\_with}\NormalTok{(fix\_mojibake) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.character), fix\_mojibake))}
+
+\FunctionTok{names}\NormalTok{(df\_fixed)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ФИО"        "Группа"     "Дисциплина" "Баллы"      "Оценка"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(df\_fixed, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 5
+##   ФИО                            Группа Дисциплина                Баллы Оценка  
+##   <chr>                          <chr>  <chr>                     <dbl> <chr>   
+## 1 Сидоров Андрей Сергеевич       ИВТ-21 Анализ данных                69 удовлет~
+## 2 Николаева Дмитрий Сергеевич    ИВТ-21 Математическая статистика    86 отлично 
+## 3 Кузнецова Екатерина Алексеевна ИВТ-21 Машинное обучение            85 отлично 
+## 4 Кузнецова Алексей Алексеевна   ИВТ-22 Машинное обучение            73 хорошо  
+## 5 Иванов Мария Петрович          ИВТ-22 Анализ данных                89 отлично
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(df\_fixed)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 36
+## Columns: 5
+## $ ФИО        <chr> "Сидоров Андрей Сергеевич", "Николаева Дмитрий Сергеевич", ~
+## $ Группа     <chr> "ИВТ-21", "ИВТ-21", "ИВТ-21", "ИВТ-22", "ИВТ-22", "ИВТ-22",~
+## $ Дисциплина <chr> "Анализ данных", "Математическая статистика", "Машинное обу~
+## $ Баллы      <dbl> 69, 86, 85, 73, 89, 55, 50, 64, 80, 56, 68, 58, 63, 51, 93,~
+## $ Оценка     <chr> "удовлетворительно", "отлично", "отлично", "хорошо", "отлич~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dim}\NormalTok{(df\_fixed)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 36  5
+\end{verbatim}
+
+\texttt{fix\_mojibake()} (в \texttt{setup}):
+\texttt{iconv(x,\ from\ =\ "UTF-8",\ to\ =\ "latin1")} +
+\texttt{Encoding(y)\ -\ "UTF-8"} --- обратная операция к той, что
+преобразовала файл
+
+\subsection{4.4. Подобранные
+параметры}\label{ux43fux43eux434ux43eux431ux440ux430ux43dux43dux44bux435-ux43fux430ux440ux430ux43cux435ux442ux440ux44b}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Параметр
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Значение
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Чем подтверждено
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{delim} & \texttt{";"} &
+\texttt{read\_lines(...,\ n\_max\ =\ 1)} \\
+\texttt{skip} & \texttt{0} & строка 1 --- заголовок \\
+\texttt{comment} & \texttt{""} & нет \texttt{\#}-строк \\
+\texttt{encoding} & \texttt{"UTF-8"} & \texttt{guess\_encoding()} =
+UTF-8, 1; \texttt{readBin} --- валидные UTF-8-байты \\
+Размер & 36 × 5 & \texttt{dim(df\_fixed)} \\
+Типы & chr, chr, chr, dbl, chr & \texttt{glimpse(df\_fixed)} \\
+\end{longtable}
+}
+
+\textbf{Вывод.} \texttt{delim}, \texttt{skip}, \texttt{comment}
+подобраны штатно. Кодировка файла --- UTF-8, но содержимое --- двойной
+mojibake, поэтому \texttt{encoding} сам по себе кириллицу не
+восстанавливает. Кириллица восстановлена обратной операцией
+\texttt{fix\_mojibake()}: 36 × 5, типы
+\texttt{chr,\ chr,\ chr,\ dbl,\ chr}, \texttt{nchar(ФИО{[}1{]})\ =\ 24}.
+
+\section{5. Имена, пустые строки и
+типы}\label{ux438ux43cux435ux43dux430-ux43fux443ux441ux442ux44bux435-ux441ux442ux440ux43eux43aux438-ux438-ux442ux438ux43fux44b}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ df\_raw }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{clean\_names}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{remove\_empty}\NormalTok{(}\AttributeTok{which =} \FunctionTok{c}\NormalTok{(}\StringTok{"rows"}\NormalTok{, }\StringTok{"cols"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{time =} \FunctionTok{str\_replace\_all}\NormalTok{(time, }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{."}\NormalTok{, }\StringTok{":"}\NormalTok{),}
+    \AttributeTok{datetime =} \FunctionTok{parse\_date\_time}\NormalTok{(}
+      \FunctionTok{paste}\NormalTok{(date, time),}
+      \AttributeTok{orders =} \FunctionTok{c}\NormalTok{(}\StringTok{"dmy HMS"}\NormalTok{, }\StringTok{"dmy HM"}\NormalTok{),}
+      \AttributeTok{tz =} \StringTok{"Europe/Rome"}
+\NormalTok{    )}
+\NormalTok{  )}
+
+\FunctionTok{glimpse}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 9,357
+## Columns: 16
+## $ date         <chr> "10/03/2004", "10/03/2004", "10/03/2004", "10/03/2004", "~
+## $ time         <chr> "18:00:00", "19:00:00", "20:00:00", "21:00:00", "22:00:00~
+## $ co_gt        <dbl> 2.6, 2.0, 2.2, 2.2, 1.6, 1.2, 1.2, 1.0, 0.9, 0.6, NA, 0.7~
+## $ pt08_s1_co   <dbl> 1360, 1292, 1402, 1376, 1272, 1197, 1185, 1136, 1094, 101~
+## $ nmhc_gt      <dbl> 150, 112, 88, 80, 51, 38, 31, 31, 24, 19, 14, 8, 16, 29, ~
+## $ c6h6_gt      <dbl> 11.9, 9.4, 9.0, 9.2, 6.5, 4.7, 3.6, 3.3, 2.3, 1.7, 1.3, 1~
+## $ pt08_s2_nmhc <dbl> 1046, 955, 939, 948, 836, 750, 690, 672, 609, 561, 527, 5~
+## $ n_ox_gt      <dbl> 166, 103, 131, 172, 131, 89, 62, 62, 45, NA, 21, 16, 34, ~
+## $ pt08_s3_n_ox <dbl> 1056, 1174, 1140, 1092, 1205, 1337, 1462, 1453, 1579, 170~
+## $ no2_gt       <dbl> 113, 92, 114, 122, 116, 96, 77, 76, 60, NA, 34, 28, 48, 8~
+## $ pt08_s4_no2  <dbl> 1692, 1559, 1555, 1584, 1490, 1393, 1333, 1333, 1276, 123~
+## $ pt08_s5_o3   <dbl> 1268, 972, 1074, 1203, 1110, 949, 733, 730, 620, 501, 445~
+## $ t            <dbl> 13.6, 13.3, 11.9, 11.0, 11.2, 11.2, 11.3, 10.7, 10.7, 10.~
+## $ rh           <dbl> 48.9, 47.7, 54.0, 60.0, 59.6, 59.2, 56.8, 60.0, 59.7, 60.~
+## $ ah           <dbl> 0.7578, 0.7255, 0.7502, 0.7867, 0.7888, 0.7848, 0.7603, 0~
+## $ datetime     <dttm> 2004-03-10 18:00:00, 2004-03-10 19:00:00, 2004-03-10 20:~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{datetime))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(datetime)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(date, time, }\AttributeTok{sort =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{head}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   date       time         n
+##   <chr>      <chr>    <int>
+## 1 27/03/2005 02:00:00     1
+## 2 28/03/2004 02:00:00     1
+\end{verbatim}
+
+\textbf{Имя до --- имя после}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+До & После \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{CO(GT)} & \texttt{co\_gt} \\
+\texttt{PT08.S1(CO)} & \texttt{pt08\_s1\_co} \\
+\texttt{NMHC(GT)} & \texttt{nmhc\_gt} \\
+\texttt{C6H6(GT)} & \texttt{c6h6\_gt} \\
+\texttt{PT08.S2(NMHC)} & \texttt{pt08\_s2\_nmhc} \\
+\texttt{NOx(GT)} & \texttt{nox\_gt} \\
+\texttt{PT08.S3(NOx)} & \texttt{pt08\_s3\_nox} \\
+\texttt{NO2(GT)} & \texttt{no2\_gt} \\
+\texttt{PT08.S4(NO2)} & \texttt{pt08\_s4\_no2} \\
+\texttt{PT08.S5(O3)} & \texttt{pt08\_s5\_o3} \\
+\texttt{T} & \texttt{t} \\
+\texttt{RH} & \texttt{rh} \\
+\texttt{AH} & \texttt{ah} \\
+\end{longtable}
+}
+
+NA в \texttt{datetime} объясняются пустыми/некорректными датой или
+временем; после \texttt{remove\_empty()} и замены \texttt{.} на
+\texttt{:} их должно быть немного или 0.
+
+\section{6.
+Профилирование}\label{ux43fux440ux43eux444ux438ux43bux438ux440ux43eux432ux430ux43dux438ux435}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{skim}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Data summary}\tabularnewline
+\toprule\noalign{}
+\endfirsthead
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Name & df \\
+Number of rows & 9357 \\
+Number of columns & 16 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Column type frequency: & \\
+character & 2 \\
+numeric & 13 \\
+POSIXct & 1 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Group variables & None \\
+\end{longtable}
+
+\textbf{Variable type: character}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1944}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1389}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1944}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0556}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0556}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1528}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+min
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+max
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+empty
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_unique
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+whitespace
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+date & 0 & 1 & 10 & 10 & 0 & 391 & 0 \\
+time & 0 & 1 & 8 & 8 & 0 & 24 & 0 \\
+\end{longtable}
+}
+
+\textbf{Variable type: numeric}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.1020}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0816}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0714}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0816}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0816}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0714}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0816}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0816}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0612}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mean
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+sd
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p0
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p25
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p50
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p75
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p100
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+hist
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+co\_gt & 1592 & 0.83 & -0.22 & 21.80 & -200.00 & 1.00 & 1.8 & 2.90 &
+11.90 & ▁▁▁▁▇ \\
+pt08\_s1\_co & 366 & 0.96 & 1099.83 & 217.08 & 647.00 & 937.00 & 1063.0
+& 1231.00 & 2040.00 & ▃▇▃▁▁ \\
+nmhc\_gt & 8443 & 0.10 & 218.81 & 204.46 & 7.00 & 67.00 & 150.0 & 297.00
+& 1189.00 & ▇▂▁▁▁ \\
+c6h6\_gt & 0 & 1.00 & 1.87 & 41.38 & -200.00 & 4.00 & 7.9 & 13.60 &
+63.70 & ▁▁▁▇▅ \\
+pt08\_s2\_nmhc & 366 & 0.96 & 939.15 & 266.83 & 383.00 & 734.50 & 909.0
+& 1116.00 & 2214.00 & ▅▇▃▁▁ \\
+n\_ox\_gt & 1639 & 0.82 & 246.90 & 212.98 & 2.00 & 98.00 & 180.0 &
+326.00 & 1479.00 & ▇▂▁▁▁ \\
+pt08\_s3\_n\_ox & 366 & 0.96 & 835.49 & 256.82 & 322.00 & 658.00 & 806.0
+& 969.50 & 2683.00 & ▇▇▁▁▁ \\
+no2\_gt & 1642 & 0.82 & 113.09 & 48.37 & 2.00 & 78.00 & 109.0 & 142.00 &
+340.00 & ▃▇▃▁▁ \\
+pt08\_s4\_no2 & 366 & 0.96 & 1456.26 & 346.21 & 551.00 & 1227.00 &
+1463.0 & 1674.00 & 2775.00 & ▂▇▇▂▁ \\
+pt08\_s5\_o3 & 366 & 0.96 & 1022.91 & 398.48 & 221.00 & 731.50 & 963.0 &
+1273.50 & 2523.00 & ▃▇▅▂▁ \\
+t & 366 & 0.96 & 18.32 & 8.83 & -1.90 & 11.80 & 17.8 & 24.40 & 44.60 &
+▂▇▇▃▁ \\
+rh & 366 & 0.96 & 49.23 & 17.32 & 9.20 & 35.80 & 49.6 & 62.50 & 88.70 &
+▂▆▇▆▂ \\
+ah & 366 & 0.96 & 1.03 & 0.40 & 0.18 & 0.74 & 1.0 & 1.31 & 2.23 &
+▃▇▇▃▁ \\
+\end{longtable}
+}
+
+\textbf{Variable type: POSIXct}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1308}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.0935}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1308}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1869}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1869}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1869}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.0841}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+min
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+max
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+median
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_unique
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+datetime & 2 & 1 & 2004-03-10 18:00:00 & 2005-04-04 14:00:00 &
+2004-09-21 16:00:00 & 9355 \\
+\end{longtable}
+}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{vis\_dat}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{lab2_files/figure-latex/unnamed-chunk-8-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{vis\_miss}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{lab2_files/figure-latex/unnamed-chunk-8-2.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{num\_df }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric))}
+\FunctionTok{vis\_expect}\NormalTok{(num\_df, }\SpecialCharTok{\textasciitilde{}}\NormalTok{ .x }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{lab2_files/figure-latex/unnamed-chunk-9-1.pdf}}
+
+Комментарий: \texttt{vis\_expect()} подсвечивает отрицательные значения,
+которые для концентраций и метеопараметров недопустимы
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{create\_report}\NormalTok{(df, }\AttributeTok{output\_file =} \StringTok{"profile.html"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   |                                             |                                     |   0%  |                                             |.                                    |   2%                                   |                                             |..                                   |   4% [global_options]                  |                                             |..                                   |   7%                                   |                                             |...                                  |   9% [introduce]                       |                                             |....                                 |  11%                                   |                                             |.....                                |  13% [plot_intro]
+\end{verbatim}
+
+\begin{verbatim}
+##   |                                             |......                               |  15%                                   |                                             |......                               |  17% [data_structure]                  |                                             |.......                              |  20%                                   |                                             |........                             |  22% [missing_profile]
+\end{verbatim}
+
+\begin{verbatim}
+##   |                                             |.........                            |  24%                                   |                                             |..........                           |  26% [univariate_distribution_header]  |                                             |..........                           |  28%                                   |                                             |...........                          |  30% [plot_histogram]
+\end{verbatim}
+
+\begin{verbatim}
+##   |                                             |............                         |  33%                                   |                                             |.............                        |  35% [plot_response_histogram]         |                                             |..............                       |  37%                                   |                                             |..............                       |  39% [plot_density]                    |                                             |...............                      |  41%                                   |                                             |................                     |  43% [plot_response_density]           |                                             |.................                    |  46%                                   |                                             |..................                   |  48% [plot_frequency_bar]
+\end{verbatim}
+
+\begin{verbatim}
+##   |                                             |..................                   |  50%                                   |                                             |...................                  |  52% [plot_response_bar]               |                                             |....................                 |  54%                                   |                                             |.....................                |  57% [plot_with_bar]                   |                                             |......................               |  59%                                   |                                             |.......................              |  61% [plot_normal_qq]
+\end{verbatim}
+
+\begin{verbatim}
+##   |                                             |.......................              |  63%                                   |                                             |........................             |  65% [plot_response_qq]                |                                             |.........................            |  67%                                   |                                             |..........................           |  70% [plot_by_qq]                      |                                             |...........................          |  72%                                   |                                             |...........................          |  74% [correlation_analysis]
+\end{verbatim}
+
+\begin{verbatim}
+##   |                                             |............................         |  76%                                   |                                             |.............................        |  78% [principal_component_analysis]
+\end{verbatim}
+
+\begin{verbatim}
+##   |                                             |..............................       |  80%                                   |                                             |...............................      |  83% [bivariate_distribution_header]   |                                             |...............................      |  85%                                   |                                             |................................     |  87% [plot_response_boxplot]           |                                             |.................................    |  89%                                   |                                             |..................................   |  91% [plot_by_boxplot]                 |                                             |...................................  |  93%                                   |                                             |...................................  |  96% [plot_response_scatterplot]       |                                             |.................................... |  98%                                   |                                             |.....................................| 100% [plot_by_scatterplot]           
+\end{verbatim}
+
+\begin{verbatim}
+## "C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/pandoc" +RTS -K512m -RTS "C:\Users\User\1_HomeWork\1\3\Project_3\report.knit.md" --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output pandoc2d742f3d703b.html --lua-filter "C:\Users\User\AppData\Local\R\win-library\4.6\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\User\AppData\Local\R\win-library\4.6\rmarkdown\rmarkdown\lua\latex-div.lua" --lua-filter "C:\Users\User\AppData\Local\R\win-library\4.6\rmarkdown\rmarkdown\lua\table-classes.lua" --embed-resources --standalone --variable bs3=TRUE --section-divs --table-of-contents --toc-depth 6 --template "C:\Users\User\AppData\Local\R\win-library\4.6\rmarkdown\rmd\h\default.html" --syntax-highlighting none --variable highlightjs=1 --variable theme=yeti --mathjax --variable "mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --include-in-header "C:\Users\User\AppData\Local\Temp\RtmpAvzobS\rmarkdown-str2d7411f23cc2.html"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{get\_dupes}\NormalTok{(df, datetime)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 17
+##   datetime dupe_count date       time     co_gt pt08_s1_co nmhc_gt c6h6_gt
+##   <dttm>        <int> <chr>      <chr>    <dbl>      <dbl>   <dbl>   <dbl>
+## 1 NA                2 28/03/2004 02:00:00   1.7       1135      95     6.3
+## 2 NA                2 27/03/2005 02:00:00   1         1008      NA     3.3
+## # i 9 more variables: pt08_s2_nmhc <dbl>, n_ox_gt <dbl>, pt08_s3_n_ox <dbl>,
+## #   no2_gt <dbl>, pt08_s4_no2 <dbl>, pt08_s5_o3 <dbl>, t <dbl>, rh <dbl>,
+## #   ah <dbl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{count}\NormalTok{(df, }\AttributeTok{date =} \FunctionTok{as.Date}\NormalTok{(datetime), }\AttributeTok{sort =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 2
+##    date           n
+##    <date>     <int>
+##  1 2004-03-11    24
+##  2 2004-03-12    24
+##  3 2004-03-13    24
+##  4 2004-03-14    24
+##  5 2004-03-15    24
+##  6 2004-03-16    24
+##  7 2004-03-17    24
+##  8 2004-03-18    24
+##  9 2004-03-19    24
+## 10 2004-03-20    24
+\end{verbatim}
+
+Пропуск: \texttt{get\_dupes()} проверяет дубли времени
+
+\textbf{Полнота по столбцам}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{skim}\NormalTok{(df) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(skim\_variable, n\_missing, complete\_rate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 16 x 3
+##    skim_variable n_missing complete_rate
+##    <chr>             <int>         <dbl>
+##  1 datetime              2        1.000 
+##  2 date                  0        1     
+##  3 time                  0        1     
+##  4 co_gt              1592        0.830 
+##  5 pt08_s1_co          366        0.961 
+##  6 nmhc_gt            8443        0.0977
+##  7 c6h6_gt               0        1     
+##  8 pt08_s2_nmhc        366        0.961 
+##  9 n_ox_gt            1639        0.825 
+## 10 pt08_s3_n_ox        366        0.961 
+## 11 no2_gt             1642        0.825 
+## 12 pt08_s4_no2         366        0.961 
+## 13 pt08_s5_o3          366        0.961 
+## 14 t                   366        0.961 
+## 15 rh                  366        0.961 
+## 16 ah                  366        0.961
+\end{verbatim}
+
+Комментарий: столбцы с \texttt{complete\_rate} заметно ниже 1 ---
+кандидаты на пропуски
+
+\section{7. Чек-лист и план
+очистки}\label{ux447ux435ux43a-ux43bux438ux441ux442-ux438-ux43fux43bux430ux43d-ux43eux447ux438ux441ux442ux43aux438}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+№
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Где (столбец, строки)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Проблема
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Чем подтверждено
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Измерение качества
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Предлагаемое решение
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & числовые датчики & скрытый код пропуска \texttt{-200} &
+\texttt{read\_lines()}, значения \texttt{-200} & полнота & считать
+\texttt{-200} как \texttt{NA} при импорте \\
+2 & весь файл & десятичная запятая & \texttt{read\_lines()},
+\texttt{read\_csv2()} & структура/типы & использовать
+\texttt{read\_csv2()} или \texttt{locale(decimal\_mark\ =\ ",")} \\
+3 & \texttt{Date}, \texttt{Time} & дата и время хранятся текстом &
+\texttt{glimpse()} & типы/согласованность & собрать \texttt{POSIXct}
+через \texttt{parse\_date\_time()} \\
+4 & конец файла & пустые строки и столбцы &
+\texttt{read\_lines(skip\ =\ 9355)}, \texttt{problems()} & структура &
+\texttt{remove\_empty()} \\
+5 & имена столбцов & несинтаксические имена \texttt{CO(GT)} &
+\texttt{glimpse()} & структура & \texttt{clean\_names()} \\
+6 & числовые столбцы & отрицательные значения там, где они невозможны &
+\texttt{vis\_expect(\textasciitilde{}\ .x\ \textless{}\ 0)} & валидность
+& заменить на \texttt{NA}/проверить источник \\
+7 & \texttt{co\_gt}, \texttt{nmhc\_gt}, \texttt{nox\_gt} и др. & выбросы
+и широкие диапазоны & \texttt{skim()} min/max/quantiles &
+точность/валидность & проверить по доменным границам \\
+8 & \texttt{datetime} & не указан часовой пояс &
+\texttt{parse\_date\_time(tz=...)} & согласованность & явно задать
+\texttt{tz\ =\ "Europe/Rome"} \\
+9 & \texttt{datetime} & возможны дубли меток времени &
+\texttt{get\_dupes(df,\ datetime)} & уникальность & решить, агрегировать
+или оставить \\
+10 & \texttt{date}, \texttt{time} & возможны пропущенные часы &
+\texttt{count(df,\ date)} & полнота/timeliness & проверить регулярность
+ряда \\
+\end{longtable}
+}
+
+Вывод: Наиболее серьёзны скрытые пропуски \texttt{-200} и отсутствие
+единой метки времени --- они напрямую искажают статистику и не дают
+строить временные ряды. Также важны отрицательные значения и выбросы
+датчиков: без доменных границ их нельзя отличить от реальных измерений.
+Дубли и пропущенные часы критичны для временного анализа.
+
+\section{Контрольные
+вопросы}\label{ux43aux43eux43dux442ux440ux43eux43bux44cux43dux44bux435-ux432ux43eux43fux440ux43eux441ux44b}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Проверял полноту (\texttt{skim()}, \texttt{vis\_miss()}), типы и
+  структуру (\texttt{glimpse()}, \texttt{vis\_dat()}), валидность
+  диапазонов (\texttt{skim()}, \texttt{vis\_expect()}), уникальность
+  (\texttt{get\_dupes()}), согласованность даты/времени, кодировку
+  (\texttt{guess\_encoding()}), проблемы импорта (\texttt{problems()}).
+\item
+  \texttt{readr} угадывает тип по первым строкам; если там пропуски/коды
+  вроде \texttt{-200} или пустые строки, тип может стать character. Надо
+  явно задавать \texttt{col\_types} и \texttt{na}.
+\item
+  Скрытые коды \texttt{-200} не распознаются как \texttt{NA} и портят
+  min/max/mean/квантили, графики и модели.
+\item
+  \texttt{get\_dupes()} только показывает дубликаты, потому что
+  одинаковые строки не всегда ошибочны; решение об удалении зависит от
+  контекста.
+\item
+  Нарушение tidy data --- это неверная форма (переменные в
+  столбцах/строках, несколько значений в одной ячейке). Некорректное
+  значение --- это ошибка содержания при правильной форме.
+\end{enumerate}
+
+\end{document}
