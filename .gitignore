@@ -1,0 +1,6 @@
+**/*.log
+**/*.tex
+**/.Rhistory
+**/.RData
+**/.Rproj.user/
+**/.Ruserdata
